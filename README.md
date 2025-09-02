@@ -17,14 +17,14 @@ environment for its Python dependencies. Make sure the installer is run as root
 or has permissions to create/modify files in the /usr directory. 
 
 ```bash
-git clone https://github.com/<your-org>/switchboard-ssh-dev.git
-cd switchboard-ssh-dev
+git clone https://github.com/nojuza/switchboard-ssh.git
+cd switchboard-ssh
 sudo ./installer/install.sh
 ```
 
 This installs the `switchboard` command to your `$PREFIX/bin` (default
 `/usr/local/bin`) and sets up an isolated virtual environment in
-`$PREFIX/share/switchboard-ssh/venv` with dependencies listed in
+`$PREFIX/share/switchboard/venv` with dependencies listed in
 `requirements.txt` (`prompt_toolkit`, `pexpect`, `cryptography`, etc.). To set
 a different installation prefix, provide `PREFIX=/path` before running the
 script.
