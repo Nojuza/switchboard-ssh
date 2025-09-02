@@ -282,7 +282,7 @@ class SshPadApp:
     # ---------- Actions ----------
     async def action_unlock_credentials(self):
         if self.cred_path.exists():
-            pw = await input_dialog(title="Unlock", text="Password:").run_async()
+            pw = await input_dialog(title="Unlock", text="Password:", password=True).run_async()
             if not pw:
                 self._clear_key_buffer()
                 return
@@ -295,7 +295,7 @@ class SshPadApp:
             self.credentials_unlocked = True
             self.cred_password = pw
         else:
-            pw = await input_dialog(title="Create store", text="New password:").run_async()
+            pw = await input_dialog(title="Create store", text="New password:", password=True).run_async()
             if not pw:
                 self._clear_key_buffer()
                 return
@@ -389,7 +389,7 @@ class SshPadApp:
                 self._clear_key_buffer()
                 return
             user = await input_dialog(title="New credential", text="User:").run_async() or ""
-            password = await input_dialog(title="New credential", text="Password (optional):").run_async() or ""
+            password = await input_dialog(title="New credential", text="Password (optional):", password=True).run_async() or ""
             identity = await input_dialog(title="New credential", text="Identity file path:").run_async() or ""
             c = CredentialProfile(name=name.strip(), user=user.strip(), password=password.strip(), identity_file=identity.strip())
             self.credentials.append(c)
@@ -433,7 +433,7 @@ class SshPadApp:
             cred = self.credentials[self.cred_cursor]
             name = await input_dialog(title="Edit credential", text=f"Name ({cred.name}):").run_async()
             user = await input_dialog(title="Edit credential", text=f"User ({cred.user}):").run_async()
-            password = await input_dialog(title="Edit credential", text="Password (leave blank keep):").run_async()
+            password = await input_dialog(title="Edit credential", text="Password (leave blank keep):", password=True).run_async()
             identity = await input_dialog(title="Edit credential", text=f"Identity ({cred.identity_file}):").run_async()
             if name: cred.name = name.strip()
             if user: cred.user = user.strip()
