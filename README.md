@@ -58,5 +58,4 @@ profile, `e` to edit, `d` to delete, `/` to search, and `s` to save.
 ## Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests.
-Please add docstrings for new code and run the test suite (via `pytest`) before
-submitting.
+Please add docstrings for new code.
